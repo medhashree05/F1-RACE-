@@ -1,0 +1,64 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-top: 100px;
+    height: 500px;
+    background-color: rgb(30, 2, 2);
+    margin-bottom: 20px;
+}
+
+.carousel-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    flex: 0 0 16%; 
+    position: relative;
+    text-align: center;
+}  
+.carousel-item img {
+    width: 50%;
+    height: 100px;
+}
+
+.overlay-text {
+    margin-top: 200px;
+    text-align: center;
+    font-size: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ccc;
+    font-size: 18px;
+    padding: 5px 10px 20px;
+    border-radius: 5px;
+    font-family: "Concert One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+  
+  .country-name {
+    font-size: 1.8em; /* Larger font size for the country name */
+    font-weight: bold;
+    padding-bottom: 200px;
+  }
+  
+  .day {
+    font-size: 3em; 
+    color: white; 
+    margin-top: 30px; /* Adds space between country and dates */
+  }
+
+  .month{
+    font-size: 1.2em;
+    color: #ccc;
+  }
+  
+.carousel-item.last-item {
+    cursor: pointer;
+}

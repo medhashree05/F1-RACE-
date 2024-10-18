@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap');
+
+
+.flashcard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    gap: 20px;
+    margin-top: 50px;
+    position: relative; 
+    z-index: 0;
+}
+
+.flashcard {
+    width: 250px;
+    height: 300px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.flashcard img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.card-label {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.flashcard-middle {
+    transform: translateY(-30px); /* Slightly raised */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.flashcard-left,
+.flashcard-right {
+    transform: translateY(0); /* Normal height */
+}
+
+.flashcard-middle:hover {
+    transform: translateY(-40px); /* Raised more on hover */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.flashcard-left:hover,
+.flashcard-right:hover {
+    transform: translateY(-10px); 
+}
+.option-buttons{
+    align-items: center;
+}
+.button-list {
+    list-style: none; 
+    padding: 0;      
+    display: flex;   
+    gap: 15px;    
+    margin-left: 41.5%;
+    margin-top: 100px;
+  }
+  
+  .button-list li {
+    margin-left: 0px; 
+  }
+
+  .button-list button {
+    padding: 10px 20px; 
+    cursor: pointer;     
+    border: none;        
+    border-radius: 5px;  
+    background-color: white; 
+    color: black;       
+    transition: background-color 0.3s; 
+    font-family: "Fira Sans", sans-serif ;
+    font-size: larger;
+  }
+
+  .vertical-line {
+    width: 2px; 
+    background-color: black; 
+    height: 20px;
+    margin-top: 15px; 
+    display: inline-block; 
+  } 
+
+.standings {
+    height: 300px; 
+    width: 100%; 
+    background-color: black; 
+    position: relative; 
+    color: white;
+    font-size: larger;
+    font-family: "Playwrite GB S", cursive;
+    text-align: center;
+    padding-top: 0.5%;
+    overflow: hidden;
+  }
+
+  .standings::after {
+    content: '';
+    position: absolute;
+    bottom: 0; 
+    left: 0; 
+    height: 100px; 
+    width: 100%; 
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1)), 
+                      linear-gradient(135deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1));
+    background-size: 20px 20px; 
+  }
+
+  .standings-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px; 
+    background-color: black;
+    z-index: 1; 
+  }
+  
+  .standing-content {
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 100px; /* Adjust based on your design */
+    z-index: 2; /* Ensure it stays above the background */
+  }
+  
