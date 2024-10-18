@@ -1,25 +1,32 @@
-/* General Nav Bar and Header Styling */
+.ct{
+    background-color: black;
+    height: 30px;
+    margin-top: 0px;
+}
 .nav_bar {
     background-color: rgb(222, 26, 26);
-    padding: 10px 20px;
+    padding: 10px 20px; /* This is fine */
     display: flex;
     justify-content: flex-end;
+    margin: 0px; /* Ensure no margin */
 }
+
 
 .logo img.f1-logo {
-    height: 60px;
-    padding-right: 200px;
+    height: 60px; 
+  }
+.header{
+    width: 1708px;
 }
-
 .header ul {
     list-style: none;
     display: flex;
-    margin: 0;
+    margin-top: 0px;
+    padding-top: 0px;
     padding: 0;
 }
 
 .header ul li {
-    position: relative; /* Keep relative for dropdown positioning */
     margin-left: 60px;
     margin-right: 130px;
     margin-top: 18px;
@@ -32,41 +39,4 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.header ul li a:hover {
-    text-decoration: underline;
-}
 
-/* Dropdown Menu Styling */
-.dropdown-menu {
-    position: absolute;
-    top: 100%; /* Ensure it appears right below the li */
-    left: 0; /* Align it with the parent li */
-    background-color: rgb(17, 4, 4);
-    display: none; /* Initially hidden */
-    z-index: 1000;
-    padding: 10px 0;
-    width: auto; /* Ensure it doesn’t overflow */
-}
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-menu {
-    display: block;
-    background-color: black; 
-    color: white;
-}
-
-/* Prevent shifting of the list items (Results, Drivers, Teams) on hover */
-.header ul li {
-    margin: 18px 130px 0 60px;
-    padding: 0;
-}
-
-/* Style for dropdown items */
-.dropdown-menu div {
-    padding: 5px 20px;
-}
-
-.dropdown-menu div a {
-    color: white;
-    text-decoration: no
-}
