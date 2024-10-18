@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.schedule {
+    font-size: 36px; /* Adjust the font size as needed */
+    font-weight: bold;
+    text-align: center; /* Center align the title */
+    margin-bottom: 20px; /* Add margin below the title */
+    color: #333; /* Change the color if desired */
+    font-family: "Merriweather", serif;
+}
+
+.schedule-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap into multiple rows */
+    justify-content: center; 
+}
+
+.flashcard.china, .flashcard.japan,.flashcard.miami,.flashcard.emilia-romagna,.flashcard.monaco,.flashcard.canada,.flashcard.spain, 
+.flashcard.austria, .flashcard.hungary, .flashcard.belgium, .flashcard.netherlands, .flashcard.great-britain, .flashcard.miami {
+    width: calc(25% - 20px); /* Set to 25% for 4 cards per row, accounting for margins */
+    margin-left: 30px; /* Reduced margin for better spacing */
+    cursor: pointer;
+    border: 1px solid #ddd;
+    position: relative; /* Set relative positioning for child absolute positioning */
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    margin-top: 20px;
+    margin-right: 30px;
+}
+
+.flashcard.italy{
+    width: calc(24.6% - 20px); /* Set to 25% for 4 cards per row, accounting for margins */
+    margin-left: 90px; /* Reduced margin for better spacing */
+    margin-right: 25px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    position: relative; /* Set relative positioning for child absolute positioning */
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    margin-top: 20px;
+}
+
+.flashcard.azerbaijan{
+    width: calc(24.6% - 20px); /* Set to 25% for 4 cards per row, accounting for margins */
+    margin-left: 36px; /* Reduced margin for better spacing */
+    margin-right: 50px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    position: relative; /* Set relative positioning for child absolute positioning */
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    margin-top: 20px;
+}
+.flashcard.singapore{
+    width: calc(25% - 20px); /* Set to 25% for 4 cards per row, accounting for margins */
+    margin-left: 18px; /* Reduced margin for better spacing */
+    margin-right: 50px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    position: relative; /* Set relative positioning for child absolute positioning */
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    margin-top: 20px;
+}
+
+.flashcard.bahrain{
+    width: calc(25.5% - 25px);
+    margin-left: 70px;
+    margin-right: 35px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    position: relative; /* Set relative positioning for child absolute positioning */
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.flashcard.saudi {
+    width: calc(25.5% - 20px); /* Set to 25% for 4 cards per row, accounting for margins */
+    margin-left: 15px; /* Reduced margin for better spacing */
+    margin-right: 55px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    position: relative; /* Set relative positioning for child absolute positioning */
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.flashcard.australia{
+    width: calc(25% - 20px); /* Set to 25% for 4 cards per row, accounting for margins */
+    margin-left: -2px; /* Reduced margin for better spacing */
+    margin-right: 110px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    position: relative; /* Set relative positioning for child absolute positioning */
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.flashcard-image {
+    background-size: cover; /* Ensure the image covers the entire div */
+    background-position: center; /* Center the image */
+    width: 100%;
+    height: 100%; /* Make sure width and height are set */
+}
+    
+.country-name {
+    position: absolute;
+    top: 50%; /* Position in the middle vertically */
+    left: 50%; /* Position in the middle horizontally */
+    transform: translate(-50%, -50%); /* Center the text */
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center; /* Center align text */
+}
+
+.country-date {
+    position: absolute;
+    top: 40%; /* Adjust position below the country name */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the text */
+    color: black;
+    font-size: 16px; 
+    text-align: center; 
+    font-family: "Concert One", sans-serif;
+    font-style: normal;
+  }  
+
+.card-label {
+    display: flex; /* Use flexbox for better alignment */
+    justify-content: center; /* Center the driver names */
+    padding: 50px;
+    background-color: black;
+    color: white;
+    font-size: 18px;
+    width: 80%; /* Make label take full width */
+}
+
+.card-label span {
+    margin: 0 10px; 
+}
+
+.driver-container {
+    position: relative; /* Enable positioning of the span elements */
+}
+    
+.driver-number {
+    position: absolute; /* Position number above driver name */
+    top: -20px; /* Adjust the vertical position as needed */
+    left: 0; /* Centered above the driver name */
+    font-weight: bold; /* Make it stand out */
+}
+    
+.raised-driver-name {
+    margin-top: -10px; /* Slightly raise the driver name */
+}
+    
+    
