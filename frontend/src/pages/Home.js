@@ -2,12 +2,16 @@ import React, { useRef, useState, useEffect } from 'react';
 import axios from 'axios';
 import '../style/Carousel.css';
 import '../style/Flashcards.css';
+import { useNavigate } from 'react-router-dom';
+
+
+
 
 const normalizeFilename = (filename) => filename.replace(/\.[^/.]+$/, "").toLowerCase();
 
 const importAll = (r) => {
   let images = {};
-  r.keys().map((item) => { 
+  r.keys().forEach((item) => { // Use forEach instead of map
     const normalizedKey = item.replace('./', '').replace(/\.[^/.]+$/, "").toLowerCase();
     images[normalizedKey] = r(item);
   });
@@ -15,8 +19,9 @@ const importAll = (r) => {
 };
 
 const images = importAll(require.context('../countries', false, /\.(png|jpe?g|svg)$/));
-const driverImages = importAll(require.context('../drivers', false, /\.(png|jpe?g|svg)$/));
-const constructorImages = importAll(require.context('../constructors', false, /\.(png|jpe?g|svg)$/));
+const driverImages = importAll(require.context('../drivers-images', false, /\.(png|jpe?g|svg|avif|webp)$/));
+
+const constructorImages = importAll(require.context('../constructors', false, /\.(png|jpe?g|svg|avif|webp)$/));
 
 const carouselTexts = {
   'a': { country: 'BAHRAIN', day: '02', month: 'MAR' },
@@ -100,44 +105,95 @@ const Home = () => {
   const endDrag = () => {
     setIsDragging(false);
   };
+  const [standingsData, setStandingsData] = useState([]);
 
   // Fetch driver standings
   useEffect(() => {
     const fetchStandings = async () => {
-      try {
-        if (selectedOption === 'drivers') {
-          const response = await axios.get('/api/drivers-standings');
-          setDriversData(response.data);
-        } else {
-          const response = await axios.get('/api/constructors-standings');
-          setConstructorsData(response.data);
+        try {
+            let response1,response2;
+            if (selectedOption === 'drivers') {
+                response1 = await axios.get('http://localhost:5000/api/championship/top-3-drivers');
+                response2 = await axios.get('http://localhost:5000/api/championship');
+                setDriversData(response1.data);
+                setStandingsData(response2.data); // Set standings data for drivers
+            } else {
+                response1 = await axios.get('http://localhost:5000/api/championship/top-3-constructors');
+                response2 = await axios.get('http://localhost:5000/api/championship/top-3-constructors');
+                setConstructorsData(response1.data);
+                setStandingsData(response2.data); // Set standings data for constructors
+            }
+        } catch (error) {
+            console.error('Error fetching data:', error);
         }
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
     };
     fetchStandings();
-  }, [selectedOption]);
+}, [selectedOption]);
+
 
   const renderFlashcards = () => {
     const data = selectedOption === 'drivers' ? driversData : constructorsData;
     const images = selectedOption === 'drivers' ? driverImages : constructorImages;
-
-    return data.map((item, index) => {
-      const normalizedName = item.name.toLowerCase().replace(/\s/g, '');
-      const imgSrc = images[normalizedName] || 'default.jpg'; // Fallback to a default image if not found
-
-      return (
-        <div
-          key={item.name}
-          className={`flashcard ${index === 0 ? 'flashcard-left' : ''} ${index === 1 ? 'flashcard-middle' : ''} ${index === 2 ? 'flashcard-right' : ''}`}
-        >
-          <img src={imgSrc} alt={item.name} />
-          <div className="card-label">{item.name}</div>
+  
+    // Limit the data to top 3 drivers or constructors
+    return (
+      <div className="flashcard-wrapper">
+        <div className="flashcard-left-container">
+          {data.length > 2 && (
+            <div className={`flashcard flashcard-left`}>
+              {(() => {
+                const name =selectedOption === 'drivers' ? data[1].driver_name : data[1].chassis;
+                const normalizedName = name.toLowerCase().replace(/\s+/g, ''); // Normalize to lowercase and remove spaces
+                const imgSrc = images[normalizedName]; // Fetch the image using normalized name
+                return (
+                  <>
+                    <img src={imgSrc} alt={name} />
+                    <div className="card-label" >{name}</div>
+                  </>
+                );
+              })()}
+            </div>
+          )}
         </div>
-      );
-    });
+        <div className="flashcard-middle-container">
+          {data.length > 0 && (
+            <div className={`flashcard flashcard-middle`}>
+              {(() => {
+                const name =  selectedOption === 'drivers' ? data[0].driver_name : data[0].chassis;
+                const normalizedName = name.toLowerCase().replace(/\s+/g, ''); // Normalize to lowercase and remove spaces
+                const imgSrc = images[normalizedName]; // Fetch the image using normalized name
+                return (
+                  <>
+                    <img src={imgSrc} alt={name} />
+                    <div className="card-label" >{name}</div>
+                  </>
+                );
+              })()}
+            </div>
+          )}
+        </div>
+        <div className="flashcard-right-container">
+          {data.length > 1 && (
+            <div className={`flashcard flashcard-right`}>
+              {(() => {
+                const name = selectedOption === 'drivers' ? data[2].driver_name : data[2].chassis;
+                const normalizedName = name.toLowerCase().replace(/\s+/g, ''); // Normalize to lowercase and remove spaces
+                const imgSrc = images[normalizedName]; // Fetch the image using normalized name
+                return (
+                  <>
+                    <img src={imgSrc} alt={name} />
+                    <div className="card-label" >{name}</div>
+                  </>
+                );
+              })()}
+            </div>
+          )}
+        </div>
+      </div>
+    );
   };
+  
+  
 
   const displayStandings = () => {
     if (selectedOption === 'drivers') {
@@ -146,7 +202,25 @@ const Home = () => {
       return <div className="standing-content">CONSTRUCTOR STANDINGS</div>;
     }
   };
-
+  const navigate = useNavigate();
+  const renderStandingsTable = () => {
+    return (
+        <table className="standings-table">
+            
+            <tbody>
+                {standingsData.slice(0,8).map((item, index) => (
+                    <tr key={index} onClick={() => navigate(`/drivers/${normalizeFilename(item.driver_name)}`)}>
+                        <td>{index + 1}</td>
+                        <td >{item.driver_name || item.chassis}  </td> {/* Adjust based on your API response */}
+                        
+                        <td>{item.total_points}</td>
+                        <td >{">"}</td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
+    );
+};
   return (
     <div className="Home">
       <div
@@ -213,8 +287,15 @@ const Home = () => {
       <div className="flashcard-container">
         {renderFlashcards()}
       </div>
+      <div className="standings-table-container">
+        {renderStandingsTable()}
+      </div>
+      <div className="viewfull" onClick={() => navigate(`/results?option=${selectedOption}`)}>View full results</div>
     </div>
+    
   );
 };
+
+
 
 export default Home;

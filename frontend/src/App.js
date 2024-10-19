@@ -7,6 +7,8 @@ import Results from './pages/results';
 import Teams from './pages/Teams';
 import Drivers from './pages/Drivers';
 import './App.css';  // Import CSS for the overall app styles
+import  MaxVerstappen   from './drivers/maxverstappen';
+
 
 function App() {
     return (
@@ -18,6 +20,7 @@ function App() {
                 <Route path="/results" element={<Results />} />
                 <Route path="/teams" element={<Teams />} />
                 <Route path="/drivers" element={<Drivers />} />
+                <Route path="/drivers/:drivername" element={<MaxVerstappen />} />
             </Routes>
         </Router>
     );

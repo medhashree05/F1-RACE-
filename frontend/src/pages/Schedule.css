@@ -99,7 +99,7 @@
     
 .country-name {
     position: absolute;
-    top: 50%; /* Position in the middle vertically */
+    top: 90%; /* Position in the middle vertically */
     left: 50%; /* Position in the middle horizontally */
     transform: translate(-50%, -50%); /* Center the text */
     color: black;
@@ -110,7 +110,7 @@
 
 .country-date {
     position: absolute;
-    top: 40%; /* Adjust position below the country name */
+    top: 80%; /* Adjust position below the country name */
     left: 50%;
     transform: translate(-50%, -50%); /* Center the text */
     color: black;

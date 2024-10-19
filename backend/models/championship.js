@@ -1,5 +1,6 @@
-const { DataTypes } = require('sequelize');
+const { Sequelize,DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
+
 
 const Championship = sequelize.define('Championship', {
   driver_id: {

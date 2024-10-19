@@ -14,5 +14,5 @@ export { default as Russel } from './russel';
 export { default as Sainz } from './sainz';
 export { default as Stroll } from './stroll';
 export { default as Tsunoda } from './tsunoda';
-export { default as Verstappen } from './verstappen';
+export { default as MaxVerstappen } from './maxverstappen';
 export { default as Zhou } from './zhou';

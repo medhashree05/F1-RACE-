@@ -1,0 +1,73 @@
+.driver {
+    background-color: #f0f0f0; /* Light gray background */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Space around the content */
+    margin: 20px; /* Space between team components */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.driver_info {
+    text-align: center; /* Center-align text */
+    margin-bottom: 20px; /* Space below the team info */
+}
+
+.driver_name {
+    font-size: 24px; /* Larger font for team name */
+    font-weight: bold; /* Bold text */
+    margin-bottom: 10px; /* Space below the team name */
+    color: #2c3e50; /* Dark blue color for team name */
+}
+
+.driver_data {
+    font-size: 16px; /* Normal font size for team data */
+    color: black;
+}
+
+.bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.image2 {
+    flex: 1; /* Allow both images to take equal space */
+    text-align: center; /* Center-align images */
+}
+
+.image1 img {
+    max-width: 100%; /* Responsive image size */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 4px; /* Slightly round the image corners */
+}
+
+.biography {
+    flex: 1; /* Center the profile info */
+    text-align: center; /* Center-align text */
+    padding: 0 20px; /* Space on left and right */
+}
+
+.image1 img {
+    max-width: 100%; /* Ensure the logo is responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 4px; /* Slightly round the corners of the logo */
+}
+
+/* List styling */
+ul {
+    list-style-type: none; /* Remove default bullet points */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+}
+
+/* Paragraphs */
+p {
+    margin: 0; /* Remove margin */
+    color: #7f8c8d; /* Light gray for unavailable text */
+}

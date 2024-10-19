@@ -16,7 +16,10 @@
     height: 60px; 
   }
 .header{
-    width: 1708px;
+    width: 1903px;
+    
+    
+    
 }
 .header ul {
     list-style: none;
@@ -27,7 +30,7 @@
 }
 
 .header ul li {
-    margin-left: 60px;
+    margin-left: 90px;
     margin-right: 130px;
     margin-top: 18px;
 }
