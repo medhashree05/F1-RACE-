@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.teams {
+    font-size: 36px; /* Adjust the font size as needed */
+    font-weight: bold;
+    text-align: center; /* Center align the title */
+    margin-bottom: 20px; /* Add margin below the title */
+    color: #333; /* Change the color if desired */
+    font-family: "Merriweather", serif;
+}
+
+.teams-container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    margin-left: 30px;
+}
+
+.team-card {
+    width: calc(25% - 20px); /* Set to 25% for 4 cards per row, accounting for margins */
+    margin: 20px; /* Reduced margin for better spacing */
+    cursor: pointer;
+    position: relative; /* Set relative positioning for child absolute positioning */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border: 2px solid transparent; /* Make all borders transparent */
+    border-top: 2px solid black; /* Visible top border */
+    border-right: 2px solid black; /* Visible right border */
+    border-left: none; /* No left border */
+    border-bottom: none; /* No bottom border */
+    border-top-right-radius: 10%; /* 20% radius for the top right corner */
+    overflow: hidden;
+}
+
+.team-card-image {
+    background-size: cover; /* Ensure the image covers the entire div */
+    background-position: center; /* Center the image */
+    width: 100%;
+    height: 200px; /* Fixed height for consistency */
+}
+
+.team-name {
+    position: absolute;
+    bottom: 50%; /* Adjust as necessary for spacing from the bottom */
+    left: 30px; /* Align to the left */
+    color: black; /* Change text color for contrast */
+    font-size: 24px; /* Adjust font size as necessary */
+    font-weight: bold;
+}
+
+.card-label {
+    display: flex; /* Use flexbox for better alignment */
+    flex-direction: column;
+    justify-content: center; /* Center the driver names */
+    padding: 2px; /* Reduced padding for better spacing */
+    padding-right: 20px;
+    background-color: black;
+    color: white;
+    font-size: 18px;
+    width: 60%; /* Make label take full width */
+}
+
+.card-label span {
+    margin: 0 20px; 
+}
+
+.team-info {
+    font-size: 16px; /* Adjust size for team info */
+    text-align: center; /* Center align team info */
+}
+  .flashcard-number {
+    position: absolute;
+    top: 10px; /* Adjust as necessary */
+    left: 10px; /* Adjust as necessary */
+    color: black; /* Change color based on your design */
+    font-weight: bold;
+  }
+  
+  .driver-names {
+    position: absolute;
+    top: 10px; /* Adjust as necessary */
+    right: 10px; /* Adjust as necessary */
+    color: white; /* Change color based on your design */
+    font-weight: bold;
+  }
+  
+  .points {
+    position: absolute;
+    top: 40px; /* Adjust as necessary for spacing */
+    right: 10px; /* Adjust as necessary */
+    color: white; /* Change color based on your design */
+    font-weight: bold;
+  }
+  
+  .card-label {
+    display: flex;
+    justify-content: flex-end; /* Aligns content to the right */
+    padding: 10px; /* Adjust padding as needed */
+  }
+  
+  .team-info1, .team-info2 {
+    /* Styles for driver names */
+    color: white; /* Change color based on your design */
+  }
+  
